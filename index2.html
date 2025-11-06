@@ -1,0 +1,133 @@
+<!-- Archivo: multiplatform_games.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PlayHub — Juegos Multiplataforma</title>
+  <meta name="description" content="Catálogo de juegos multiplataforma — PC y consolas, con descuentos, promociones y títulos exclusivos.">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">PlayHub</h1>
+      <nav class="main-nav">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#descuentos">Descuentos</a>
+        <a href="#disponibles">Disponibles</a>
+        <a href="#descontinuados">Descontinuados</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>Tu centro para jugar: PC y consolas — títulos clásicos, exclusivos y tendencias</h2>
+      <p>Accede a juegos clásicos, exclusivos de consola y títulos actuales desde la misma plataforma.</p>
+      <div class="filters">
+        <button data-filter="all" class="active">Todos</button>
+        <button data-filter="pc">PC</button>
+        <button data-filter="console">Consola</button>
+        <button data-filter="descontinuado">Descontinuados</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section id="catalogo" class="catalog">
+    </section>
+
+    <section id="descuentos" class="offers">
+      <h2>🎮 Descuentos y Promociones</h2>
+      <p>Aprovecha las mejores ofertas de la semana en títulos seleccionados.</p>
+      <div class="offer-grid">
+        <article class="offer-card">
+          <img src="images/fifa25.jpg" alt="FIFA 25 Oferta">
+          <div class="offer-body">
+            <h3>FIFA 25</h3>
+            <p><strong>Descuento:</strong> 35% OFF</p>
+            <p>Juega con las nuevas físicas y gráficos mejorados.</p>
+            <button class="buy">Comprar ahora</button>
+          </div>
+        </article>
+
+        <article class="offer-card">
+          <img src="images/halo.jpg" alt="Halo Infinite">
+          <div class="offer-body">
+            <h3>Halo Infinite</h3>
+            <p><strong>Descuento:</strong> 50% OFF</p>
+            <p>Revive la saga más épica de Xbox en su versión más completa.</p>
+            <button class="buy">Comprar ahora</button>
+          </div>
+        </article>
+
+        <article class="offer-card">
+          <img src="images/left4dead.jpg" alt="Left 4 Dead Oferta">
+          <div class="offer-body">
+            <h3>Left 4 Dead</h3>
+            <p><strong>Descuento:</strong> 40% OFF</p>
+            <p>Acción cooperativa contra hordas de zombis.</p>
+            <button class="buy">Comprar ahora</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="descontinuados" class="descontinued">
+      <h2>Juegos descontinuados o difíciles de conseguir</h2>
+      <ul>
+        <li><strong>Age of Empires Online</strong> — Cerrado en 2014, versión multijugador del clásico.</li>
+        <li><strong>The Matrix Online</strong> — MMORPG ambientado en Matrix, cerrado en 2009.</li>
+        <li><strong>Need for Speed: World</strong> — Juego de carreras online gratuito, cerrado en 2015.</li>
+        <li><strong>P.T. (Silent Hills Demo)</strong> — Retirado de PlayStation Store en 2015.</li>
+        <li><strong>Marvel vs. Capcom 2</strong> — Eliminado por derechos de autor, PS3/Xbox 360.</li>
+        <li><strong>Guitar Hero Live</strong> — Servidores cerrados, canciones no disponibles.</li>
+        <li><strong>Socom: U.S. Navy SEALs</strong> — Servidores desconectados por Sony.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer id="contacto" class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Contacto</h4>
+        <p>Teléfono: +52 1 81 5555 0000</p>
+        <p>Soporte (WhatsApp): +52 1 81 5555 0001</p>
+        <p>Email: soporte@playhub.example</p>
+      </div>
+      <div>
+        <h4>Atención</h4>
+        <p>Horario: Lun - Vie 10:00 - 20:00 (UTC-6)</p>
+        <p>Chat en vivo y tickets disponibles.</p>
+      </div>
+      <div>
+        <h4>Redes</h4>
+        <p>@PlayHubOficial</p>
+        <p><a href="https://github.com/TU_USUARIO/playhub" target="_blank">🌐 GitHub del proyecto</a></p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 PlayHub — Demo educativo</p>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('.filters button');
+    const cards = document.querySelectorAll('.game-card');
+
+    buttons.forEach(btn => btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+      cards.forEach(card => {
+        if (filter === 'all') card.style.display = '';
+        else if (filter === 'descontinuado') {
+          card.style.display = card.classList.contains('descontinuado') ? '' : 'none';
+        } else {
+          card.style.display = card.classList.contains(filter) ? '' : 'none';
+        }
+      });
+    }));
+  </script>
+</body>
+</html>
